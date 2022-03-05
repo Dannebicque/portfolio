@@ -1,6 +1,8 @@
 {
+  "name": "da/iutfolio",
+  "description": "Le portfolio des IUT et du B.U.T.",
   "type": "project",
-  "license": "proprietary",
+  "license": "MPL-2.0",
   "minimum-stability": "stable",
   "prefer-stable": true,
   "require": {
