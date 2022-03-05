@@ -1,0 +1,143 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espace Etudiant{% endblock %}
+
+{% block body %}
+    <section class="w-full">
+        <div class="
+          relative
+          items-center
+          w-full
+          px-5
+          py-8
+          mx-auto
+          md:px-12
+          lg:px-16
+          max-w-7xl
+        ">
+            <div class="flex w-full mx-auto text-left">
+                <div class="relative inline-flex items-center mx-auto align-middle">
+                    <div class="pb-12 text-center">
+                        <h1 class="
+                  max-w-5xl
+                  text-2xl
+                  font-bold
+                  leading-none
+                  tracking-tighter
+                  text-neutral-600
+                  md:text-5xl
+                  lg:text-6xl lg:max-w-7xl
+                "> Bienvenue sur votre <br class="hidden lg:block"> Portfolio de compétences </h1>
+                        <form action="" method="post" id="revue-form" name="revue-form" target="_blank" class="
+                  p-2
+                  mt-8
+                  transition
+                  duration-500
+                  ease-in-out
+                  transform
+                  border2
+                  bg-gray-50
+                  md:mx-auto
+                  rounded-xl
+                  sm:max-w-lg sm:flex
+                ">
+                            <div class="flex-1 min-w-0 revue-form-group">
+                                <label for="recherche" class="sr-only">Votre recherche...</label>
+                                <input id="recherche" type="search" class="
+                      block
+                      w-full
+                      px-5
+                      py-3
+                      text-base
+                      placeholder-gray-300
+                      transition
+                      duration-500
+                      ease-in-out
+                      transform
+                      bg-transparent
+                      border border-transparent
+                      rounded-md
+                      text-neutral-600
+                      focus:outline-none
+                      focus:border-transparent
+                      focus:ring-2
+                      focus:ring-white
+                      focus:ring-offset-2
+                      focus:ring-offset-gray-300
+                    " placeholder="Saisissez votre recherche...  ">
+                            </div>
+                            <div class="mt-4 sm:mt-0 sm:ml-3 revue-form-actions">
+                                <button type="submit" value="Subscribe" name="member[subscribe]" id="member_submit" class="
+                      block
+                      w-full
+                      px-5
+                      py-3
+                      text-base
+                      font-medium
+                      text-white
+                      bg-blue-600
+                      border border-transparent
+                      rounded-lg
+                      shadow
+                      hover:bg-blue-700
+                      focus:outline-none
+                      focus:ring-2
+                      focus:ring-white
+                      focus:ring-offset-2
+                      focus:ring-offset-gray-300
+                      sm:px-10
+                    "><i class="fas fa-search"></i> Rechercher
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full">
+
+        <div class="flex flex-wrap gap-5 text-center">
+            <a href="{{ path('etudiant_trace_depot') }}" class="group block max-w-xs mx-auto rounded-lg p-4 bg-white ring-1
+            ring-slate-900/5
+            shadow-lg
+             space-y-3 hover:bg-sky-500 hover:ring-sky-500">
+                <div class="flex items-center space-x-3">
+                    <svg class="h-6 w-6 stroke-sky-500 group-hover:stroke-white" fill="none" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19H6.931A1.922 1.922 0 015 17.087V8h12.069C18.135 8 19 8.857 19 9.913V11"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 7.64L13.042 6c-.36-.616-1.053-1-1.806-1H7.057C5.921 5 5 5.86 5 6.92V11M17 15v4M19 17h-4"></path>
+                    </svg>
+                    <h3 class="text-sm text-slate-900 font-semibold group-hover:text-white">Ajouter une trace</h3>
+                </div>
+                <p class="text-sm text-slate-500 group-hover:text-white">
+                    Déposer une nouvelle trace pour attester de compétences .
+                </p>
+            </a>
+            <a href="#" class="group block max-w-xs mx-auto rounded-lg p-4 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500">
+                <div class="flex items-center space-x-3">
+                    <svg class="h-6 w-6 stroke-sky-500 group-hover:stroke-white" fill="none" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19H6.931A1.922 1.922 0 015 17.087V8h12.069C18.135 8 19 8.857 19 9.913V11"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 7.64L13.042 6c-.36-.616-1.053-1-1.806-1H7.057C5.921 5 5 5.86 5 6.92V11M17 15v4M19 17h-4"></path>
+                    </svg>
+                    <h3 class="text-sm text-slate-900 font-semibold group-hover:text-white">Consulter les traces</h3>
+                </div>
+                <p class="text-sm text-slate-500 group-hover:text-white">
+                    Voir l'ensemble de vos traces et leur validation.
+                </p>
+            </a>
+            <a href="#" class="group block max-w-xs mx-auto rounded-lg p-4 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500">
+                <div class="flex items-center space-x-3">
+                    <svg class="h-6 w-6 stroke-sky-500 group-hover:stroke-white" fill="none" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19H6.931A1.922 1.922 0 015 17.087V8h12.069C18.135 8 19 8.857 19 9.913V11"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 7.64L13.042 6c-.36-.616-1.053-1-1.806-1H7.057C5.921 5 5 5.86 5 6.92V11M17 15v4M19 17h-4"></path>
+                    </svg>
+                    <h3 class="text-sm text-slate-900 font-semibold group-hover:text-white">Autoévaluation</h3>
+                </div>
+                <p class="text-sm text-slate-500 group-hover:text-white">
+                    Réalisez une auto-évaluation de vos compétences.
+                </p>
+            </a>
+        </div>
+    </section>
+{% endblock %}
