@@ -2,57 +2,22 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use JetBrains\PhpStorm\Deprecated;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-#[ORM\Entity(repositoryClass: UserRepository::class)]
-#[ORM\Table(name: '`user`')]
-class User implements UserInterface, PasswordAuthenticatedUserInterface
+#[ORM\MappedSuperclass]
+abstract class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column(type: 'integer')]
-    private $id;
-
-    #[ORM\Column(type: 'string', length: 180, unique: true)]
-    private $email;
-
-    #[ORM\Column(type: 'json')]
-    private $roles = [];
+    #[ORM\Column(type: "json")]
+    private array $roles = [];
 
     #[ORM\Column(type: 'string')]
-    private $password;
+    private string $password;
 
-    #[ORM\Column(type: 'string', length: 5)]
-    private $genre;
-
-    #[ORM\Column(type: 'string', length: 100)]
-    private $nom;
-
-    #[ORM\Column(type: 'string', length: 100)]
-    private $prenom;
-
-    #[ORM\Column(type: 'string', length: 255)]
-    private $slug;
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
+    #[ORM\Column(type: 'string', length: 255, unique: true)]
+    private ?string $email;
 
     /**
      * A visual identifier that represents this user.
@@ -60,6 +25,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @see UserInterface
      */
     public function getUserIdentifier(): string
+    {
+        return (string)$this->email;
+    }
+
+    #[Deprecated]
+    public function getUsername(): string
     {
         return (string)$this->email;
     }
@@ -99,6 +70,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
+     * Returning a salt is only needed, if you are not using a modern
+     * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
+     *
+     * @see UserInterface
+     */
+    public function getSalt(): ?string
+    {
+        return null;
+    }
+
+    /**
      * @see UserInterface
      */
     public function eraseCredentials()
@@ -107,50 +89,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function getGenre(): ?string
+    public function getEmail(): ?string
     {
-        return $this->genre;
+        return $this->email;
     }
 
-    public function setGenre(string $genre): self
+    public function setEmail(string $email): self
     {
-        $this->genre = $genre;
-
-        return $this;
-    }
-
-    public function getNom(): ?string
-    {
-        return $this->nom;
-    }
-
-    public function setNom(string $nom): self
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    public function getPrenom(): ?string
-    {
-        return $this->prenom;
-    }
-
-    public function setPrenom(string $prenom): self
-    {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
+        $this->email = $email;
 
         return $this;
     }
