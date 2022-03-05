@@ -1,3 +1,16 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+@import "@fortawesome/fontawesome-pro/scss/fontawesome.scss";
+@import "@fortawesome/fontawesome-pro/scss/solid.scss";
+@import "@fortawesome/fontawesome-pro/scss/brands.scss";
+
+// for Duotones need both files
+@import "@fortawesome/fontawesome-pro/scss/duotone.scss";
+@import "@fortawesome/fontawesome-pro/scss/_duotone-icons.scss";
+
+
+.card {
+  @apply bg-white shadow-lg rounded-lg overflow-hidden;
+}

@@ -51,8 +51,8 @@ Encore
 
   // enables @babel/preset-env polyfills
   .configureBabelPresetEnv((config) => {
-      config.useBuiltIns = 'usage'
-      config.corejs = 3
+    config.useBuiltIns = 'usage'
+    config.corejs = 3
   })
 
   // enables Sass/SCSS support
@@ -61,7 +61,11 @@ Encore
   // uncomment if you use TypeScript
   //.enableTypeScriptLoader()
 
-  .enablePostCssLoader()
+  .enablePostCssLoader((options) => {
+    options.postcssOptions = {
+      config: './postcss.config.js'
+    }
+  })
 
 
 // uncomment to get integrity="..." attributes on your script & link tags
