@@ -2,30 +2,30 @@
 
 namespace App\Repository;
 
-use App\Entity\TraceFile;
+use App\Entity\Adresse;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method TraceFile|null find($id, $lockMode = null, $lockVersion = null)
- * @method TraceFile|null findOneBy(array $criteria, array $orderBy = null)
- * @method TraceFile[]    findAll()
- * @method TraceFile[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Adresse|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Adresse|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Adresse[]    findAll()
+ * @method Adresse[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class TraceFileRepository extends ServiceEntityRepository
+class AdresseRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, TraceFile::class);
+        parent::__construct($registry, Adresse::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(TraceFile $entity, bool $flush = true): void
+    public function add(Adresse $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -37,7 +37,7 @@ class TraceFileRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(TraceFile $entity, bool $flush = true): void
+    public function remove(Adresse $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -46,15 +46,15 @@ class TraceFileRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return TraceFile2[] Returns an array of TraceFile2 objects
+    //  * @return Adresse[] Returns an array of Adresse objects
     //  */
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('t.id', 'ASC')
+            ->orderBy('a.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -63,10 +63,10 @@ class TraceFileRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?TraceFile2
+    public function findOneBySomeField($value): ?Adresse
     {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.exampleField = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()

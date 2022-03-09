@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section>
+        <h1>Profil & paramètres</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Profil & paramètres</li>
+            </ol>
+        </nav>
+    </section>
+    <section>
+        <div class="row">
+            <div class="col-md-12 mb-4">
+                <div class="card bg-info">
+                    <div class="card-body">
+                        Configurez ici vos informations, modifiez votre mot de passe ou votre email, vos réseaux
+                        sociaux. Configurez comment votre portfolio est accessible.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-secondary text-light">
+                        <div class="d-flex bd-highlight">
+                            <div class="me-auto p-2 bd-highlight">
+                                <h3 class="card-title justify-content-start">
+                                    Mon compte
+                                </h3>
+                            </div>
+                            <div class="p-2 bd-highlight">
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#modal-depot">
+                                    <i class="fas fa-file"></i>
+                                    Mes paramètres
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <fieldset>
+                            <legend>Informations personnelles</legend>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    {{ form_row(form.prenom) }}
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    {{ form_row(form.nom) }}
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    {{ form_row(form.email) }}
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    {{ form_row(form.slug) }}
+                                </div>
+                            </div>
+                        </fieldset>
+                        <hr>
+                        <fieldset>
+                            <legend>Coordonnées</legend>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    {{ form_row(form.adresse.adresse1) }}
+                                </div>
+                                <div class="col-sm-12">
+                                    {{ form_row(form.adresse.adresse2) }}
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                    {{ form_row(form.adresse.codepostal) }}
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                    {{ form_row(form.adresse.ville) }}
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                    {{ form_row(form.adresse.pays) }}
+                                </div>
+                            </div>
+                        </fieldset>
+                        <hr>
+                        <fieldset>
+                            <legend>A propos de moi</legend>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    {{ form_row(form.about) }}
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -2,23 +2,29 @@
 
 namespace App\Form;
 
-use App\Entity\Trace;
+use App\Entity\Student;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class TraceType extends AbstractType
+class EtudiantProfilType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('description');
+            ->add('email')
+            ->add('nom')
+            ->add('prenom')
+            ->add('slug')
+            ->add('telephone')
+            ->add('about')
+            ->add('adresse', AdresseType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Trace::class,
+            'data_class' => Student::class,
         ]);
     }
 }

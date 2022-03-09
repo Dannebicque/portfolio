@@ -19,6 +19,12 @@ class Student extends User
     #[ORM\OneToMany(mappedBy: "student", targetEntity: Trace::class)]
     private ArrayCollection $traces;
 
+    #[ORM\Column(type: 'text', nullable: true)]
+    private ?string $about;
+
+    #[ORM\ManyToOne(targetEntity: Adresse::class, inversedBy: 'students')]
+    private ?Adresse $adresse;
+
     public function __construct()
     {
         $this->traces = new ArrayCollection();
@@ -55,6 +61,30 @@ class Student extends User
                 $trace->setStudent(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAbout(): ?string
+    {
+        return $this->about;
+    }
+
+    public function setAbout(?string $about): self
+    {
+        $this->about = $about;
+
+        return $this;
+    }
+
+    public function getAdresse(): ?Adresse
+    {
+        return $this->adresse;
+    }
+
+    public function setAdresse(?Adresse $adresse): self
+    {
+        $this->adresse = $adresse;
 
         return $this;
     }

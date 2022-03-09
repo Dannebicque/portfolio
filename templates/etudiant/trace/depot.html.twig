@@ -1,5 +1,82 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ form(form) }}
+    <section>
+        <h1>Dépôt d'une trace</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Dépôt d'une trace</li>
+            </ol>
+        </nav>
+    </section>
+    <section>
+        <div class="row">
+            <div class="col-md-12 mb-4">
+                <div class="card bg-info">
+                    <div class="card-body">
+                        Une trace est un élément de preuve de l'acquisition de tout ou partie d'une compétence de la
+                        formation. Elle doit être argumentée et attachée à des apprentissages critiques. Une trace
+                        peut être un fichier, un lien, ...
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header bg-secondary">
+                        <div class="d-flex bd-highlight">
+                            <div class="me-auto p-2 bd-highlight">
+                                <h3 class="card-title justify-content-start">
+                                    Dépôt d'une trace - Un fichier
+                                </h3>
+                            </div>
+                            <div class="p-2 bd-highlight">
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#modal-depot">
+                                    <i class="fas fa-file"></i>
+                                    Déposer un fichier
+                                </button>
+                            </div>
+                            <div class="p-2 bd-highlight">
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#modal-depot">
+                                    <i class="fas fa-globe"></i>
+                                    Déposer une URL/lien
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {{ form_start(form) }}
+                        <div class="row">
+                            <div class="col-md-4">
+                                {{ form_row(form.fichier) }}
+                            </div>
+                            <div class="col-md-8">
+                                {{ form_row(form.description) }}
+                            </div>
+                            <div class="col-md-12">
+                                <label>Choix des AC/Compétences</label><br>
+                                {% for i in 1..10 %}
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                        <label class="form-check-label" for="flexCheckChecked">
+                                            AC1.{{ i }}
+                                        </label>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Enregistrer et publier
+                            </button>
+                            <button type="submit" class="btn btn-secondary">
+                                <i class="fas fa-save"></i> Sauvegarder le brouillon
+                            </button>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
